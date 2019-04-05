@@ -24,6 +24,8 @@ const Friend = props => {
             <Name>Name: {props.friend.name}</Name>
             <Details>Age: {props.friend.age}</Details>
             <Details>Email: {props.friend.email}</Details>
+
+            <span onClick={() => props.deleteFriend(props.friend.id)}>Delete Friend</span>
         </FriendContainer>
     )
 }

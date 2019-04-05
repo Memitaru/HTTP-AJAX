@@ -23,11 +23,17 @@ class App extends Component {
     this.setState({friends: newFriends})
   }
 
+  deleteFriend = id => {
+    axios.delete(`http://localhost:5000/friends/${id}`)
+      .then(response => this.setState({friends: response.data}))
+      .catch(err => console.log(err))
+  }
+
   render() {
     return (
       <div className="App">
-      <Route exact path="/" render={props => <FriendList {...props} friends={this.state.friends} />} />
-      <Route path="/add" render={props => <AddFriend {...props} updateFriends={this.updateFriends} />} />
+      <Route exact path="/" render={props => <FriendList {...props} friends={this.state.friends} deleteFriend={this.deleteFriend}/>} />
+      <Route path="/add" render={props => <AddFriend {...props} updateFriends={this.updateFriends} /> } />
       </div>
     );
   }
