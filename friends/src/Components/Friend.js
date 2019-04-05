@@ -5,7 +5,8 @@ let FriendContainer = styled.div`
     border: 1px solid black;
     margin: 5px auto;
     padding: 10px;
-    width: 600px;
+    width: 30%;
+    min-width: 200px;
 `
 
 let Name = styled.h1`
